@@ -25,27 +25,14 @@
             <input id="page-count" name="page-count" type="number" required />
           </div>
 
-          <fieldset class="legacy-form-row">
-            <legend>Read Status</legend>
-            <input
-              id="read-status-1"
-              name="read-status"
-              type="radio"
-              value="true"
-            />
-            <label for="read-status-1" class="radio-label">Read</label>
-            <input
-              id="read-status-2"
-              name="read-status"
-              type="radio"
-              value="false"
-              checked
-            />
-            <label for="read-status-2" class="radio-label">Unread</label>
-          </fieldset>
+          <div class="form-row">
+            <label for="read-status">Read Status</label>
+            <input id="read-status" name="read-status" type="checkbox" />
+            <label for="read-status">Read</label>
+          </div>
 
           <div class="form-row">
-            <button id="submit-button">Submit</button>
+            <button id="submit-button" type="submit">Submit</button>
           </div>
         </form>
       </div>

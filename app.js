@@ -6,12 +6,17 @@ function addBookToLibrary() {
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
   const pageCount = document.getElementById("page-count").value;
-  const readStatus = document.getElementById("read-status-1").checked;
+
+  const readStatus = document.getElementById("read-status").checked
+    ? "Read"
+    : "Unread";
 
   const newBook = new Book(title, author, pageCount, readStatus);
 
   myLibrary.push(newBook);
   displayBooks();
+
+  document.getElementById("book-form").reset();
 }
 
 function Book(newTitle, newAuthor, newPageCount, newReadStatus) {
@@ -34,6 +39,8 @@ function displayBooks() {
 let submitButton = document.getElementById("submit-button");
 
 submitButton.addEventListener("click", function (e) {
-  e.preventDefault();
-  addBookToLibrary();
+  if (document.getElementById("book-form").checkValidity()) {
+    e.preventDefault(); // Only prevent default if the form is valid
+    addBookToLibrary();
+  }
 });
